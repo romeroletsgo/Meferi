@@ -34,9 +34,12 @@
 											</ul>
 										</li>
 										<li class="hassubs">
-											<a href="categories.html">Категории товаров</a>
+											<a href="categories.html">Категории товаров Шаблон</a>
 											<ul>
-												<li><a href="categories.html">Категория</a></li>
+												@foreach (var item in Model)
+												{
+													<li class="page_menu_item menu_mm"><a href="categories.html">@item.Name шаблон<i class="fa fa-angle-down"></i></a></li>
+												}
 											</ul>
 										</li>
 										<li><a href="#">Аксессуары</a></li>

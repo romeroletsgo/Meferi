@@ -1,4 +1,6 @@
-﻿using Meferi.Models;
+﻿using DataLayer.Entities;
+using DataLayer.EntitiesCode;
+using Meferi.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,11 +8,11 @@ namespace Meferi.Controllers
 {
 	public class HomeController : Controller
 	{
-		private readonly ILogger<HomeController> _logger;
+		private readonly EfCoreContext _context;
 
-		public HomeController(ILogger<HomeController> logger)
+		public HomeController(EfCoreContext context)
 		{
-			_logger = logger;
+			_context = context;
 		}
 
 		public IActionResult Index()
@@ -25,7 +27,8 @@ namespace Meferi.Controllers
 		
 		public IActionResult Categories()
 		{
-			return View();
+			var categories = _context.Categories.Select(c => c).ToList();
+			return View(categories);
 		}
 
 		public IActionResult Checkout()

@@ -1,27 +1,30 @@
-var builder = WebApplication.CreateBuilder(args);
+using DataLayer.EntitiesCode;
+using Meferi;
+using Microsoft.AspNetCore;
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+public class Program
 {
-	app.UseExceptionHandler("/Home/Error");
-	// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-	app.UseHsts();
+	public static void Main(string[] args)
+	{
+		var host = CreateWebHostBuilder(args).Build();
+
+	/*	using (var scope = host.Services.CreateScope())
+		{
+			var services = scope.ServiceProvider;
+			try
+			{
+				var context = services.GetRequiredService<EfCoreContext>();
+			}
+			catch (Exception ex)
+			{
+				var logger = services.GetRequiredService<ILogger<Program>>();
+				logger.LogError(ex, "An error occurred creating the DB.");
+			}
+		}*/
+
+		host.Run();
+	}
+
+	public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+		WebHost.CreateDefaultBuilder(args).UseStartup<Startup>();
 }
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapControllerRoute(
-	name: "default",
-	pattern: "{controller=Home}/{action=Index}/{id?}");
-
-app.Run();
