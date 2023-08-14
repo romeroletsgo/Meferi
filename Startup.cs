@@ -18,7 +18,7 @@ namespace Meferi
 			services.AddControllersWithViews();
 			
 			var connection = Configuration.GetConnectionString("DefaultConnection");
-			services.AddDbContext<EfCoreContext>(options => options.UseSqlServer(connection));
+			services.AddDbContext<EfCoreContext>(options => options.UseSqlServer(connection, b => b.MigrationsAssembly("Meferi")));
 
 		}
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

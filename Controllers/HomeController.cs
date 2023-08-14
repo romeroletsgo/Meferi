@@ -24,11 +24,19 @@ namespace Meferi.Controllers
 		{
 			return View();
 		}
-		
+
+		[HttpGet]
 		public IActionResult Categories()
 		{
 			var categories = _context.Categories.Select(c => c).ToList();
 			return View(categories);
+		}
+
+		public IActionResult Category(int id)
+		{
+			var category = _context.Categories.FirstOrDefault(category => category.CategoryId == id);
+			category.Products = category.Products ?? new List<Product>();
+			return View(category);
 		}
 
 		public IActionResult Checkout()

@@ -10,7 +10,7 @@
 3. Header
 4. Menu
 5. Home
-6. Products
+6. Categories
 7. Icon Boxes
 8. Newsletter
 9. Footer
@@ -864,11 +864,10 @@ section
 }
 
 /*********************************
-6. Products
+6. Categories
 *********************************/
 
-.products
-{
+.categories {
 	width: 100%;
 	background: #FFFFFF;
 	z-index: 2;
@@ -983,28 +982,23 @@ section
 	margin-left: 63px;
 }
 
-/* Product */
-.product
-{
+/* Category */
+.category {
 	width: calc((100% - 90px) / 4);
 	margin-bottom: 59px;
 }
-.product_image
-{
+.category_image {
 	width: 100%;
 }
-.product_image img
-{
-	max-width: 100%;
-}
-.product_content
-{
+	.category_image img {
+		max-width: 100%;
+	}
+.category_content {
 	width: 100%;
 	padding-top: 36px;
 	padding-bottom: 38px;
 }
-.product_title a
-{
+.category_title a {
 	font-size: 18px;
 	font-weight: 500;
 	color: #1b1b1b;
@@ -1015,20 +1009,17 @@ section
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
-.product_title a:hover
-{
-	color: #e95a5a;
-}
-.product_price
-{
+	.category_title a:hover {
+		color: #e95a5a;
+	}
+.category_price {
 	font-size: 16px;
 	font-weight: 500;
 	color: #6c6a74;
 	line-height: 0.75;
 	margin-top: 13px;
 }
-.product_extra
-{
+.category_extra {
 	position: absolute;
 	top: 0;
 	left: 54px;
@@ -1042,55 +1033,46 @@ section
 	transform-origin: top left;
 	transform: rotate(90deg);
 }
-.product_extra a
-{
-	display: block;
-	font-size: 16px;
-	font-weight: 500;
-	color: #FFFFFF;
-	line-height: 36px;
-}
-.product_new
-{
+	.category_extra a {
+		display: block;
+		font-size: 16px;
+		font-weight: 500;
+		color: #FFFFFF;
+		line-height: 36px;
+	}
+.category_new {
 	background: #6c6a74;
 }
-.product_sale
-{
+.category_sale {
 	background: #e95a5a;
 }
-.product_hot
-{
+.category_hot {
 	background: #1b1b1b;
 }
-.product_pagination
-{
+.category_pagination {
 	width: 100%;
 	margin-top: 3px;
 }
-.product_pagination ul li
-{
-	display: inline-block;
-}
-.product_pagination ul li:not(:last-child)
-{
-	margin-right: 3px;
-}
-.product_pagination ul li a
-{
-	font-size: 14px;
-	font-weight: 400;
-	color: #6c6a74;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
-}
-.product_pagination ul li.active a,
-.product_pagination ul li:hover a
-{
-	color: #1b1b1b;
-}
+	.category_pagination ul li {
+		display: inline-block;
+	}
+		.category_pagination ul li:not(:last-child) {
+			margin-right: 3px;
+		}
+		.category_pagination ul li a {
+			font-size: 14px;
+			font-weight: 400;
+			color: #6c6a74;
+			-webkit-transition: all 200ms ease;
+			-moz-transition: all 200ms ease;
+			-ms-transition: all 200ms ease;
+			-o-transition: all 200ms ease;
+			transition: all 200ms ease;
+		}
+		.category_pagination ul li.active a,
+		.category_pagination ul li:hover a {
+			color: #1b1b1b;
+		}
 
 /*********************************
 7. Icon Boxes

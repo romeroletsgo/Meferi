@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DataLayer.Entities.Category>;
+﻿@model DataLayer.Entities.Category
 
 @section Styles {
 
@@ -40,11 +40,11 @@
 					</ul>
 				</li>
 				<li class="page_menu_item has-children menu_mm">
-					<a href="categories.html">Categories<i class="fa fa-angle-down"></i></a>
+					<a asp-controller="Home" asp-action="Categories">Categories<i class="fa fa-angle-down"></i></a>
 					<ul class="page_menu_selection menu_mm">
-						@foreach (var item in Model)
+						@foreach (var item in Model.Products)
 						{
-							<li class="page_menu_item menu_mm"><a asp-controller="Home" asp-action="Category" asp-route-id="@item.CategoryId">@item.Name категории<i class="fa fa-angle-down"></i></a></li>
+							<li class="page_menu_item menu_mm"><a asp-controller="Home" asp-action="Category" asp-route-id="@item.CategoryId">@item.Name<i class="fa fa-angle-down"></i></a></li>
 						}
 					</ul>
 				</li>
@@ -87,14 +87,14 @@
 	</div>
 </div>
 
-<!-- Categories -->
+<!-- Products -->
 
-<div class="categories">
+<div class="products">
 	<div class="container">
 		<div class="row">
 			<div class="col">
 
-				<!-- Category Sorting -->
+				<!-- Product Sorting -->
 				<div class="sorting_bar d-flex flex-md-row flex-column align-items-md-center justify-content-md-start">
 					<div class="results">Showing <span>12</span> results</div>
 					<div class="sorting_container ml-md-auto">
@@ -104,9 +104,9 @@
 									<span class="sorting_text">Sort by</span>
 									<i class="fa fa-chevron-down" aria-hidden="true"></i>
 									<ul>
-										<li class="category_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Default</span></li>
-										<li class="category_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
-										<li class="category_sorting_btn" data-isotope-option='{ "sortBy": "stars" }'><span>Name</span></li>
+										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Default</span></li>
+										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
+										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "stars" }'><span>Name</span></li>
 									</ul>
 								</li>
 							</ul>
@@ -117,24 +117,24 @@
 		</div>
 		
 		<div class="row">
-			<div class="col">
+			<div class="col">">
 
-				<div class="category_grid">
+				<div class="product_grid">
 
-					@foreach (var item in Model)
+					@foreach (var item in Model.Products)
 					{
-						<!-- Category -->
-						<div class="category">
-							<div class="category_image"><img src="images/product_2.jpg" alt=""></div>
-							<div class="category_extra category_sale"><a asp-controller="Home" asp-action="Category" asp-route-id="@item.CategoryId">@item.CategoryId</a></div>
-							<div class="category_content">
-								<div class="categoryt_title"><a asp-controller="Home" asp-action="Category" asp-route-id="@item.CategoryId">@item.Name</a></div>
+						<!-- Product -->
+						<div class="product">
+							<div class="product_image"><img src="images/product_2.jpg" alt=""></div>
+							<div class="product_extra product_sale"><a href="categories.html">Sale</a></div>
+							<div class="product_content">
+								<div class="product_title"><a href="product.html" asp-controller="Home" asp-action="Category" asp-route-CategoryId="@item.CategoryId">@item.Name</a></div>
 							</div>
 						</div>
 					}
 
 				</div>
-				<div class="category_pagination">
+				<div class="product_pagination">
 					<ul>
 						<li class="active"><a href="#">01.</a></li>
 						<li><a href="#">02.</a></li>
